@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/main.css" >
+    <script src="js/bootstrap.min.js"></script>
+
+
+    <meta charset="UTF-8">
+    <title>KittyJar</title>
+</head>
+<body>
+
+<div class="jumbotron">
+    <?php
+        include 'head.php';
+    ?>
+
+    <h1>Create A Debt</h1>
+    <br/>
+
+    <h6>Amount:</h6>
+    <form method="get">
+        <input type="text" name="debtAmount" class="form-control grpCodeText shortTextBox" placeholder="Debt Amount" aria-describedby="basic-addon1">
+    </form>
+
+    <!--<ul class="list-group">
+      <li class="list-group-item  shortTextBox">Jordan Berni</li>
+      <li class="list-group-item  shortTextBox">Tudor Sandals</li>
+      <li class="list-group-item  shortTextBox">Rory Crispy</li>
+    </ul> -->
+
+    <br/>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <input type="checkbox" aria-label="...">
+                </span>
+                    <input type="text" class="form-control" aria-label="..." placeholder="Jordan Berni">
+                <span class="input-group-addon">
+                    <input type="checkbox" aria-label="...">
+                </span>
+                    <input type="text" class="form-control" aria-label="..." placeholder="Tudor Sandals">
+            </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+    </div><!-- /.row -->
+
+    <br/>
+<br>
+    <button type="button" class="btn btn-success">Register Group</button>
+
+
+</div>
+
+</body>
+</html>
