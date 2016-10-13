@@ -4,3 +4,9 @@
 .grpCodeButton {
     vertical-align: top;
 }
+.owed {
+    color: #bd4147;
+}
+.owe {
+    color: #449d44;
+}
