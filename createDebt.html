@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/main.css" >
+     <link rel="stylesheet" href="css/createDebt.css" >
+    <script src="js/bootstrap.min.js"></script>
+
+
+    <meta charset="UTF-8">
+    <title>KittyJar</title>
+</head>
+<body>
+
+<div class="jumbotron">
+    <?php
+        include 'head.php';
+    ?>
+
+    <h1>Create A Debt</h1>
+    <br/>
+
+    <h6>Amount:</h6>
+    <form method="get">
+        <div class="input-group">
+            <span class="input-group-addon">£</span>
+            <input type="text" class="form-control debtAmount" placeholder="0.00">
+        </div>
+        <br/>
+    <!-- LOOP FOR ADDING MEMBERS-->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <input type="checkbox" id = "Jordan Berni checkbox">
+                </span>
+                    <label class="form-control">Jordan Berni</label>
+            </div>
+        </div>
+    </div>
+    <!-- LOOP END-->
+    </form>
+
+
+<br>
+    <button type="button" class="btn btn-success">Submit Debt</button>
+
+
+</div>
+
+</body>
+</html>
