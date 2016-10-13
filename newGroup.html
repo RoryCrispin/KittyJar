@@ -22,7 +22,7 @@
 
     <form>
         <div class="inputs">
-            <div class="nameField"><input type="text" name="dynamic[]" class="field form-control shortTextBox" value=""></div>
+            <div class = "row"><input type="text" class="field name form-control shortTextBox" name="dynamic[]" value="" placeholder="Name"  /> <input type="text" class="field paypal form-control shortTextBox" name="dynamic[]" value="" placeholder="Paypal.me link"  /> </div>
         </div>
         <input name="submit" type="button" class="submit btn btn-success inline" value="Submit">
     </form>
@@ -33,26 +33,35 @@ $(document).ready(function(){
 
 
 $('#add').click(function() {
-$('<div><input type="text" class="field form-control shortTextBox" name="dynamic[]" value="" /></div>    ').fadeIn('slow').appendTo('.inputs');
+$('<div class ="row"><input type="text" class="field name form-control shortTextBox" name="dynamic[]" value="" placeholder="Name"  /> <input type="text" class="field paypal form-control shortTextBox" name="dynamic[]" value="" placeholder="Paypal.me link"  /> </div>    ').fadeIn('slow').appendTo('.inputs');
 
 });
 
 
-
-// here's our click function for when the forms submitted
 
 $('.submit').click(function(){
 
-var answers = [];
-$.each($('.field'), function() {
-answers.push($(this).val());
-});
+var people = [];
+    $.each($('.row'), function (){
+        console.log(this);
+        var nameBox = this.getElementsByClassName("name");
+        var paypalBox = this.getElementsByClassName("paypal");
+        people.push({name : $(nameBox).val() , paypal : $(paypalBox).val() });
 
-if(answers.length == 0) {
-answers = "none";
-}
+    });
 
-alert(answers);
+console.log(people);
+
+    $.ajax({
+        url: "registerGroup.php",
+        data: people,
+        type: 'post',
+        success: function(people) {
+            alert(people);
+        }
+    });
+
+
 
 return false;
 
