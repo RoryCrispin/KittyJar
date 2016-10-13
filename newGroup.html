@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<div class="jumbotron">
+<h1> Create Group</h1>
+
+<h3> Add Members</h3>
+<div class="dynamic-form">
+
+    <a href="#" id="add">Add</a>
+
+    <form>
+        <div class="inputs">
+            <div><input type="text" name="dynamic[]" class="field form-control" value=""></div>
+        </div>
+        <input name="submit" type="button" class="submit" value="Submit">
+    </form>
+</div>
+
+<script>
+$(document).ready(function(){
+
+
+$('#add').click(function() {
+$('<div><input type="text" class="field form-control" name="dynamic[]" value="" /></div>').fadeIn('slow').appendTo('.inputs');
+i++;
+});
+
+
+
+// here's our click function for when the forms submitted
+
+$('.submit').click(function(){
+
+var answers = [];
+$.each($('.field'), function() {
+answers.push($(this).val());
+});
+
+if(answers.length == 0) {
+answers = "none";
+}
+
+alert(answers);
+
+return false;
+
+});
+
+});
+
+</script>
+</div>
+</body>
+
+
+</html>
