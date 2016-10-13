@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css" >
     <link rel="stylesheet" href="css/main.css" >
+     <link rel="stylesheet" href="css/createDebt.css" >
     <script src="js/bootstrap.min.js"></script>
 
 
@@ -21,34 +22,28 @@
 
     <h6>Amount:</h6>
     <form method="get">
-        <input type="text" name="debtAmount" class="form-control grpCodeText shortTextBox" placeholder="Debt Amount" aria-describedby="basic-addon1">
-    </form>
-
-    <!--<ul class="list-group">
-      <li class="list-group-item  shortTextBox">Jordan Berni</li>
-      <li class="list-group-item  shortTextBox">Tudor Sandals</li>
-      <li class="list-group-item  shortTextBox">Rory Crispy</li>
-    </ul> -->
-
-    <br/>
+        <div class="input-group">
+            <span class="input-group-addon">£</span>
+            <input type="text" class="form-control debtAmount" placeholder="0.00">
+        </div>
+        <br/>
+    <!-- LOOP FOR ADDING MEMBERS-->
     <div class="row">
         <div class="col-lg-6">
             <div class="input-group">
                 <span class="input-group-addon">
-                    <input type="checkbox" aria-label="...">
+                    <input type="checkbox" id = "Jordan Berni checkbox">
                 </span>
-                    <input type="text" class="form-control" aria-label="..." placeholder="Jordan Berni">
-                <span class="input-group-addon">
-                    <input type="checkbox" aria-label="...">
-                </span>
-                    <input type="text" class="form-control" aria-label="..." placeholder="Tudor Sandals">
-            </div><!-- /input-group -->
-        </div><!-- /.col-lg-6 -->
-    </div><!-- /.row -->
+                    <label class="form-control">Jordan Berni</label>
+            </div>
+        </div>
+    </div>
+    <!-- LOOP END-->
+    </form>
 
-    <br/>
+
 <br>
-    <button type="button" class="btn btn-success">Register Group</button>
+    <button type="button" class="btn btn-success">Submit Debt</button>
 
 
 </div>
