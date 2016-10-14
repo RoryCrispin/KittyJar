@@ -1,3 +1,3 @@
 <?php
-   echo("<img src='img/logo.png' style='margin-bottom: 20px'/>
+   echo("<img src='img/logo.png' style='margin-bottom: 1%'/>
         ");
