@@ -4,7 +4,9 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" >
     <link rel="stylesheet" href="css/main.css" >
      <link rel="stylesheet" href="css/createDebt.css" >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    
 
 
     <meta charset="UTF-8">
@@ -24,7 +26,7 @@
     <form method="get">
         <div class="input-group">
             <span class="input-group-addon">£</span>
-            <input type="text" class="form-control debtAmount" placeholder="0.00">
+            <input required type="text" id='debtAmount' onkeypress='validate(event)' class="form-control debtAmount" placeholder="0.00">
         </div>
         <br/>
     <!-- LOOP FOR ADDING MEMBERS-->
@@ -34,13 +36,41 @@
                 <span class="input-group-addon">
                     <input type="checkbox" id = "Jordan Berni checkbox">
                 </span>
-                    <label class="form-control">Jordan Berni</label>
+                    <label class="form-control memberName">Jordan Berni</label>
             </div>
         </div>
     </div>
     <!-- LOOP END-->
     </form>
+    <script>
+    function validate(evt) {
+            var theEvent = evt || window.event;
+            var key = theEvent.keyCode || theEvent.which;
+            key = String.fromCharCode( key );
+            var regex = /[0-9]|\./;
+            var decimalKey = /\./;
+            var debtValue = document.getElementById('debtAmount').value;
+            var stopPlace = debtValue.indexOf(".");
+            var length = debtValue.length;
 
+            if(stopPlace > 0 && length == (stopPlace + 3)){
+                theEvent.returnValue = false;
+                    if(theEvent.preventDefault) 
+                        theEvent.preventDefault();
+            }
+
+            if(debtValue.indexOf('.') != -1 && decimalKey.test(key)){
+                    theEvent.returnValue = false;
+                    if(theEvent.preventDefault) 
+                        theEvent.preventDefault();
+            }
+            if( !regex.test(key)) {
+                theEvent.returnValue = false;
+                if(theEvent.preventDefault) 
+                    theEvent.preventDefault();
+            }
+    }
+    </script>
 
 <br>
     <button type="button" class="btn btn-success">Submit Debt</button>
