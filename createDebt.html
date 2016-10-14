@@ -48,15 +48,22 @@
             var key = theEvent.keyCode || theEvent.which;
             key = String.fromCharCode( key );
             var regex = /[0-9]|\./;
+            var numbersKey = /[0-9]/;
             var decimalKey = /\./;
             var debtValue = document.getElementById('debtAmount').value;
             var stopPlace = debtValue.indexOf(".");
             var length = debtValue.length;
 
+            if(length == 0 && !numbersKey.test(key)){
+                theEvent.returnValue = false;
+                if(theEvent.preventDefault) 
+                    theEvent.preventDefault();  
+            }
+
             if(stopPlace > 0 && length == (stopPlace + 3)){
                 theEvent.returnValue = false;
-                    if(theEvent.preventDefault) 
-                        theEvent.preventDefault();
+                if(theEvent.preventDefault) 
+                    theEvent.preventDefault();
             }
 
             if(debtValue.indexOf('.') != -1 && decimalKey.test(key)){
