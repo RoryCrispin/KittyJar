@@ -16,6 +16,7 @@
 <div class="jumbotron">
     <?php
         include 'head.php';
+        include 'database.php';
     ?>
 
     <h1>Your Dashboard</h1>
@@ -39,7 +40,7 @@
 </div>
 
 <script>
-    $(function() {
+    $(document).ready(function() {
         var owedAnim = new CountUp("dashOwed", 0, 105.56, 2, 0.8);
         owedAnim.start();
 
