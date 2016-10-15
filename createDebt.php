@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/bootstrap.css" >
     <link rel="stylesheet" href="css/main.css" >
      <link rel="stylesheet" href="css/createDebt.css" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -10,16 +10,17 @@
 
 
     <meta charset="UTF-8">
-    <title>KittyJar</title>
+    <title>KittyJar - Create a Debt</title>
 </head>
 <body>
 
 <div class="jumbotron">
     <?php
         include 'head.php';
+        include 'database.php';
     ?>
 
-    <h1>Create A Debt</h1>
+    <h1>Create a Debt</h1>
     <br/>
 
     <h6>Amount:</h6>
@@ -29,17 +30,34 @@
             <input required type="text" id='debtAmount' onkeypress='validateDebtAmount(event)' class="form-control debtAmount" placeholder="0.00" onPaste='return false' autocomplete='off'>
         </div>
         <br/>
-    <!-- LOOP FOR ADDING MEMBERS-->
-    <div class="row">
-        <div class="col-lg-6">
+        <h6>Reference:</h6>
+        <form method="get">
             <div class="input-group">
-                <span class="input-group-addon">
-                    <input type="checkbox" id = "Jordan Berni checkbox">
-                </span>
-                    <label class="form-control memberName">Jordan Berni</label>
+                <input required type="text" id='debtReference' class="form-control memberName">
             </div>
-        </div>
-    </div>
+        <br/>
+    <!-- LOOP FOR ADDING MEMBERS-->
+    <h6>Names:</h6>
+    <?php
+        $groupID = 1;
+        $sql = "SELECT name FROM User WHERE groupID = ". $groupID . " ORDER BY name";
+        $result = $conn->query($sql);
+        if($result->num_rows > 0){
+            while($row = $result->fetch_array()){
+                echo ("<div class='row'>
+                            <div class='col-lg-6'>
+                                <div class='input-group'>
+                                    <span class='input-group-addon'>
+                                        <input type='checkbox' id = '" . $row['name'] . "checkbox'>
+                                    </span>
+                                        <label class='form-control memberName'>" . $row['name'] . "</label>
+                                </div>
+                            </div>
+                    </div>");
+            }
+        } else
+            echo('fail');
+    ?>
     <!-- LOOP END-->
     </form>
     <script>
@@ -79,8 +97,11 @@
     }
     </script>
 
-<br>
+    <br/>
     <button type="button" class="btn btn-success">Submit Debt</button>
+    <br/>
+    <br/>
+    <button type="button" onclick="location.href='dashboard.php'" class="btn btn-primary">Home</button>
 
 
 </div>

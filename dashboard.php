@@ -35,6 +35,7 @@
     <br/>
 
     <button type="button" class="btn btn-primary">View Debts</button>
+    <button type="button" onclick="location.href='createDebt.php'" class="btn btn-primary">Create a Debt</button>
     <button type="button" class="btn btn-primary">Make Payments</button>
 
 </div>

@@ -1,9 +1,9 @@
 .debtAmount{
-    width: 10%!important;
+    width: 10REM!important;
     display: inline;
 }
 
 .memberName{
-    width: 80%!important;
+    width: 20REM!important;
     display: block;
 }
