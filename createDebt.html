@@ -26,7 +26,7 @@
     <form method="get">
         <div class="input-group">
             <span class="input-group-addon">£</span>
-            <input required type="text" id='debtAmount' onkeypress='validate(event)' class="form-control debtAmount" placeholder="0.00">
+            <input required type="text" id='debtAmount' onkeypress='validateDebtAmount(event)' class="form-control debtAmount" placeholder="0.00" onPaste='return false' autocomplete='off'>
         </div>
         <br/>
     <!-- LOOP FOR ADDING MEMBERS-->
@@ -43,7 +43,7 @@
     <!-- LOOP END-->
     </form>
     <script>
-    function validate(evt) {
+    function validateDebtAmount(evt) {
             var theEvent = evt || window.event;
             var key = theEvent.keyCode || theEvent.which;
             key = String.fromCharCode( key );
