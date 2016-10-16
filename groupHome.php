@@ -35,6 +35,8 @@
         }
     ?>
 
+
+
     <div id="setPinModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
@@ -45,9 +47,12 @@
                     <h4 class="modal-title">Login</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Set your PIN: you'll use this to login to your house.</p>
+                    <p>Choose a four digit PIN<br/>
+                        <span class="tip">You'll use this to login to your group</span></p>
                     <div class="input-group">
-                        <input required type="text" id='userPin' class="form-control">
+                        <form action="handleSetPin.php" method="post">
+                            <input required type="text" name="save" id="userPin" class="form-control">
+                        </form>
                     </div>
                 </div>
                 <div class="modal-footer">

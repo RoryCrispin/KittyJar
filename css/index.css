@@ -21,6 +21,11 @@
     width: 15rem;
 }
 
+.tip {
+    color: #a1a1a1;
+    font-size: 0.75rem;
+}
+
 #userPin {
     width: 5rem;
 }
