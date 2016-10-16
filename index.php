@@ -15,7 +15,10 @@
 
 
 <div class="jumbotron">
-    <h1>KittyJar</h1>
+    <?php
+    include 'head.php';
+    ?>
+
     <p>Welcome to the simplest house bill splitting tool out there! </p>
 
     <h6>Already got a house?</h6>
