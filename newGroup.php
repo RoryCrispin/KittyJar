@@ -19,10 +19,15 @@
     <h3> Add Members</h3>
     <div class="dynamic-form">
 
-        <a href="#" id="add">Add Rows</a><br>
 
         <form>
             <div class="inputs">
+                <input type="text" class="field name form-control shortTextBox groupname" name="dynamic[]"
+                       value="" placeholder="Group Name"/>
+
+                <br>
+                <a href="#" id="add">Add Rows</a><br>
+
                 <div class="MemberRow"><input type="text" class="field name form-control shortTextBox" name="dynamic[]"
                                               value=""
                                               placeholder="Name"/> <input type="text"
@@ -40,7 +45,8 @@
 
             $('#add').click(function () {
                 $('<div class ="MemberRow"><input type="text" class="field name form-control shortTextBox" name="dynamic[]" value="" ' +
-                    'placeholder="Name"  /> <input type="text" class="field paypal form-control shortTextBox" name="dynamic[]" value="" placeholder="Paypal.me link"  /> </div>    ').fadeIn('slow').appendTo('.inputs');
+                    'placeholder="Name"  /> <input type="text" class="field paypal form-control shortTextBox" name="dynamic[]" ' +
+                    'value="" placeholder="Paypal.me link"  /> </div>    ').fadeIn('slow').appendTo('.inputs');
 
             });
 
@@ -48,11 +54,14 @@
             $('.submit').click(function () {
 
                 var people = [];
+                var groupnameBox = document.getElementsByClassName("groupname");
+
+
                 $.each($('.MemberRow'), function () {
                     console.log(this);
                     var nameBox = this.getElementsByClassName("name");
                     var paypalBox = this.getElementsByClassName("paypal");
-                    people.push({name: $(nameBox).val(), paypal: $(paypalBox).val()});
+                    people.push({ name: $(nameBox).val(), groupName: $(groupnameBox).val(), paypal: $(paypalBox).val()});
 
                 });
 
