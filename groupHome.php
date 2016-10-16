@@ -44,19 +44,16 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Login</h4>
+                    <h4 class="modal-title">Register</h4>
                 </div>
                 <div class="modal-body">
                     <p>Choose a four digit PIN<br/>
                         <span class="tip">You'll use this to login to your group</span></p>
                     <div class="input-group">
-                        <form action="handleSetPin.php" method="post">
-                            <input required type="text" name="save" id="userPin" class="form-control">
+                        <form id="pinForm" action="" method="post" onsubmit="return validate()">
+                            <input required type="text" name="save" class="userPin" class="form-control" maxlength="4">
                         </form>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
 
@@ -75,11 +72,8 @@
                 <div class="modal-body">
                     <p>Enter your PIN:</p>
                     <div class="input-group">
-                        <input required type="text" id='userPin' class="form-control">
+                        <input required type="text" class="userPin" class="form-control">
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
 
@@ -88,4 +82,5 @@
 </div>
 
 </body>
+
 </html>
