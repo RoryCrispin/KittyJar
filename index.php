@@ -22,7 +22,7 @@
     <p>Welcome to the simplest house bill splitting tool out there! </p>
 
     <h6>Already got a house?</h6>
-    <form action="groupHome.html" method="get">
+    <form action="groupHome.php" method="get">
         <input type="text" name="groupCode" class="form-control grpCodeText shortTextBox" placeholder="Group code" aria-describedby="basic-addon1">
         <button type="submit" class="btn btn-primary grpCodeButton">Enter!</button>
     </form>
