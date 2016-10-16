@@ -18,5 +18,9 @@
 
 .who-btn {
     margin-bottom: 1rem;
-    width: 10%;
+    width: 15rem;
+}
+
+#userPin {
+    width: 5rem;
 }
