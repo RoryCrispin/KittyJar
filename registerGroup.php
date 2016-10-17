@@ -1,11 +1,13 @@
 <?php
 include "database.php";
+include "generateGroupCode.php";
+
 //echo ($_POST['groupname']);
 
 $data = json_decode($_POST["people"]);
 
 $sql = "INSERT INTO `Group`(`groupName`, `groupPin`)
-VALUES ('" .$_POST['groupname']  . "', 'abxy');";
+VALUES ('" .$_POST['groupname']  . "', '" . getGroupName($conn)."');";
 echo $sql;
 
 
