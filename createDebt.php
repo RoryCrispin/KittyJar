@@ -73,13 +73,16 @@
             var debtValue = document.getElementById('debtAmount').value;
             var numMembers = 0;
             //TODO: DON'T HARD CODE MAX NUMBER
-            for(var i = 0; i < 10; i++){
-                if(box[1].checked){
+            for(var i = 0; i < 2; i++){
+                if(box[i].checked){
                     numMembers++;
                 }
             }
-            console.log(debtValue / numMembers);
-            //textOut.value = 'hi';
+            console.log(numMembers);
+            if(numMembers > 0 && debtValue > 0){
+                textOut.textContent = (debtValue / numMembers).toFixed(2);
+            } else
+                textOut.textContent = '0.00';
 
         }
 
