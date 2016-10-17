@@ -50,7 +50,7 @@
                         <form id="pinForm" action="handleSetDetails.php" method="post">
                             <div class="input-group">
                                 <input required type="text" name="save" id="enterNewPin" onPaste='return false'
-                                   onkeypress='validateNewPin(event)' class="userPin" class="form-control" maxlength="4">
+                                   onkeypress='validatePin(event, "enterNewPin")' class="userPin" class="form-control" maxlength="4">
                             </div>
 
                             <br/>
@@ -91,7 +91,7 @@
                 <div class="modal-body">
                     <div class="input-group">
                         <label for="enterUserPin" style="margin-right:1rem">Enter your PIN:</label>
-                        <input required type="text" id='enterUserPin' class="userPin" onkeypress='validateUserPin(event)'
+                        <input required type="text" id='enterUserPin' class="userPin" onkeypress='validatePin(event,"enterUserPin")'
                                onPaste='return false' autocomplete="false" class="form-control" maxlength=4>
                     </div>
                 </div>
@@ -120,27 +120,12 @@
 </script>
 
 <script>
-    function validateUserPin(evt) {
+    function validatePin(evt, name) {
         var theEvent = evt || window.event;
         var key = theEvent.keyCode || theEvent.which;
         key = String.fromCharCode( key );
         var regex = /[0-9]/;
-        var PIN = document.getElementById('enterUserPin').value;
-        var length = PIN.length;
-
-        if(!regex.test(key)) {
-            theEvent.returnValue = false;
-            if(theEvent.preventDefault)
-                theEvent.preventDefault();
-        }
-    }
-
-    function validateNewPin(evt) {
-        var theEvent = evt || window.event;
-        var key = theEvent.keyCode || theEvent.which;
-        key = String.fromCharCode( key );
-        var regex = /[0-9]/;
-        var PIN = document.getElementById('enterNewPin').value;
+        var PIN = document.getElementById(name).value;
         var length = PIN.length;
 
         if(!regex.test(key)) {
