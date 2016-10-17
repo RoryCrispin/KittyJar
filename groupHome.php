@@ -25,7 +25,7 @@
             echo("<div class='alert alert-danger' role='alert'>Incorrect PIN!</div>");
         }
 
-        $groupID = 1;
+        $groupID = $_GET['id']; // TODO can't have error and id at the same time
         $sql = "SELECT * FROM User WHERE groupID = " . $groupID . " ORDER BY name";
         $result = $conn->query($sql);
         if($result->num_rows > 0) {
@@ -93,7 +93,7 @@
                     <h4 class="modal-title">Hey, </h4>
                 </div>
                 <div class="modal-body">
-                    <form id="loginForm" action="handleLogin.php?id=" method="post">
+                    <form id="loginForm" action="handleUserLogin.php?id=" method="post">
                         <div class="input-group">
                             <label for="enterUserPin" style="margin-right:1rem">Enter your PIN:</label>
                             <input required type="text" name="pin" id='enterUserPin' class="userPin"
@@ -115,7 +115,7 @@
 
         // set the action's id to the userid
         $("#registerForm").attr("action", "handleSetDetails.php?id=" + userID);
-        $("#loginForm").attr("action", "handleLogin.php?id=" + userID);
+        $("#loginForm").attr("action", "handleUserLogin.php?id=" + userID);
 
         $('.modal-title').each(function() {
             var firstName;

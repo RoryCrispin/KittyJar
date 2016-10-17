@@ -16,14 +16,18 @@
 
 <div class="jumbotron">
     <?php
-    include 'head.php';
+        include 'head.php';
+
+        if(isset($_GET['error'])) {
+            echo("<div class='alert alert-danger' role='alert'>Could not find the group that belongs to that PIN!</div>");
+        }
     ?>
 
     <p>Welcome to the simplest house bill splitting tool out there! </p>
 
     <h6>Already got a house?</h6>
-    <form action="groupHome.html" method="get">
-        <input type="text" name="groupCode" class="form-control grpCodeText shortTextBox" placeholder="Group code"
+    <form action="handleGroupLogin.php" method="post">
+        <input type="text" name="code" class="form-control grpCodeText shortTextBox" placeholder="Group code"
                aria-describedby="basic-addon1">
         <button type="submit" class="btn btn-primary grpCodeButton">Enter!</button>
     </form>
