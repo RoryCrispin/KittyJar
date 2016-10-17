@@ -48,7 +48,7 @@
                             <div class='col-lg-6'>
                                 <div class='input-group'>
                                     <span class='input-group-addon'>
-                                        <input type='checkbox' id = '" . $row['name'] . "checkbox'>
+                                        <input type='checkbox' name='checkbox' onclick='checkBoxTest()' id = '" . $row['name'] . " checkbox'>
                                     </span>
                                         <label class='form-control memberName'>" . $row['name'] . "</label>
                                 </div>
@@ -60,8 +60,30 @@
     ?>
     <!-- LOOP END-->
     </form>
+    <br/>
+    <div class="input-group">
+        <span class="input-group-addon">Each person pays: £</span>
+        <label id= 'eachAmount' class='form-control debtAmount'>0.00</label>
+    </div>
+
     <script>
-    function validateDebtAmount(evt) {
+        function checkBoxTest(){
+            var box = document.getElementsByName('checkbox');
+            var textOut = document.getElementById('eachAmount');
+            var debtValue = document.getElementById('debtAmount').value;
+            var numMembers = 0;
+            //TODO: DON'T HARD CODE MAX NUMBER
+            for(var i = 0; i < 10; i++){
+                if(box[1].checked){
+                    numMembers++;
+                }
+            }
+            console.log(debtValue / numMembers);
+            //textOut.value = 'hi';
+
+        }
+
+        function validateDebtAmount(evt) {
             var theEvent = evt || window.event;
             var key = theEvent.keyCode || theEvent.which;
             key = String.fromCharCode( key );
