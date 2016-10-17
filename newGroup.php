@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>KittyJar - Create Group</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/newGroup.css">
@@ -71,7 +71,9 @@
 
                 $.ajax({
                     url: "registerGroup.php",
-                    data: "people=" + JSON.stringify(people),
+//                    data: "people=" + JSON.stringify(people),
+                    data: {people : JSON.stringify(people), groupname : "bob"},
+
                     type: 'post',
                     success: function (people) {
                         alert(people);

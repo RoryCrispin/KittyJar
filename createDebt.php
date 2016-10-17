@@ -36,7 +36,7 @@
                 <input required type="text" id='debtReference' class="form-control memberName">
             </div>
         <br/>
-    <!-- LOOP FOR ADDING MEMBERS-->
+    <!-- LOOP FOR ADDING MEMBERS -->
     <h6>Names:</h6>
     <?php
         $groupID = 1;
