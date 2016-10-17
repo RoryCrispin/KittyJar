@@ -30,14 +30,13 @@
 
                 <div class="MemberRow"><input type="text" class="field name form-control shortTextBox" name="dynamic[]"
                                               value=""
-                                              placeholder="Name"/> <input type="text"
-                                                                          class="field paypal form-control shortTextBox"
-                                                                          name="dynamic[]" value=""
-                                                                          placeholder="Paypal.me link"/></div>
-            </div>
-            <input name="submit" type="button" class="submit btn btn-success inline" value="Submit">
+                                              placeholder="Name"/>
+                </div>
         </form>
+
     </div>
+    <input name="submit" type="button" class="submit btn btn-success inline" value="Submit">
+
 
     <script>
         $(document).ready(function () {
@@ -45,8 +44,7 @@
 
             $('#add').click(function () {
                 $('<div class ="MemberRow"><input type="text" class="field name form-control shortTextBox" name="dynamic[]" value="" ' +
-                    'placeholder="Name"  /> <input type="text" class="field paypal form-control shortTextBox" name="dynamic[]" ' +
-                    'value="" placeholder="Paypal.me link"  /> </div>    ').fadeIn('slow').appendTo('.inputs');
+                    'placeholder="Name"  />  </div>    ').fadeIn('slow').appendTo('.inputs');
 
             });
 
@@ -60,8 +58,7 @@
                 $.each($('.MemberRow'), function () {
                     console.log(this);
                     var nameBox = this.getElementsByClassName("name");
-                    var paypalBox = this.getElementsByClassName("paypal");
-                    people.push({ name: $(nameBox).val(), groupName: $(groupnameBox).val(), paypal: $(paypalBox).val()});
+                    people.push($(nameBox).val());
 
                 });
 
@@ -72,7 +69,7 @@
                 $.ajax({
                     url: "registerGroup.php",
 //                    data: "people=" + JSON.stringify(people),
-                    data: {people : JSON.stringify(people), groupname : "bob"},
+                    data: {people: JSON.stringify(people), groupname: $(groupnameBox).val()},
 
                     type: 'post',
                     success: function (people) {
