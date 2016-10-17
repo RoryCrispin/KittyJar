@@ -29,3 +29,11 @@
 .userPin {
     width: 5rem;
 }
+
+#paypalInput {
+    width: 10rem;
+}
+
+#emailInput {
+    width: 16.5rem;
+}

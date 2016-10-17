@@ -35,8 +35,6 @@
         }
     ?>
 
-
-
     <div id="setPinModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
@@ -44,15 +42,35 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Register</h4>
+                    <h4 class="modal-title">Hey, </h4>
                 </div>
                 <div class="modal-body">
-                    <p>Choose a four digit PIN<br/>
-                        <span class="tip">You'll use this to login to your group</span></p>
+                    <label for="paypal">Choose a four digit pin <span class="tip">(you'll use this to login to your group)</span></label>
                     <div class="input-group">
-                        <form id="pinForm" action="" method="post" onsubmit="return validate()">
-                            <input required type="text" name="save" id="enterNewPin" onPaste='return false'
+                        <form id="pinForm" action="handleSetDetails.php" method="post">
+                            <div class="input-group">
+                                <input required type="text" name="save" id="enterNewPin" onPaste='return false'
                                    onkeypress='validateNewPin(event)' class="userPin" class="form-control" maxlength="4">
+                            </div>
+
+                            <br/>
+
+                            <label for="paypalInput">PayPal.me link</label>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon3">paypal.me/</span>
+                                <input type="text" class="form-control" name="paypal" id="paypalInput" aria-describedby="basic-addon3">
+                            </div>
+
+                            <br/>
+
+                            <label for="emailInput">Email address <span class="tip">(optional)</span></label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="emailInput" aria-describedby="basic-addon3">
+                            </div>
+
+                            <br/>
+
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Register</button>
                         </form>
                     </div>
                 </div>
@@ -68,13 +86,13 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Login</h4>
+                    <h4 class="modal-title">Hey, </h4>
                 </div>
                 <div class="modal-body">
-                    <p>Enter your PIN:</p>
                     <div class="input-group">
+                        <label for="enterUserPin" style="margin-right:1rem">Enter your PIN:</label>
                         <input required type="text" id='enterUserPin' class="userPin" onkeypress='validateUserPin(event)'
-                               onPaste='return false' autocomplete="false" class="form-control">
+                               onPaste='return false' autocomplete="false" class="form-control" maxlength=4>
                     </div>
                 </div>
             </div>
@@ -82,6 +100,24 @@
         </div>
     </div>
 </div>
+
+<script>
+    var name;
+
+    $(".who-btn").click(function() {
+        name = $(this).html();
+        $('.modal-title').each(function() {
+            var firstName;
+            if(name.indexOf(' ')!=-1) {
+                firstName = name.substr(0, name.indexOf(' '));
+            } else {
+                firstName = name;
+            }
+
+            $(this).html("Hey, " + firstName);
+        });
+    });
+</script>
 
 <script>
     function validateUserPin(evt) {
@@ -92,7 +128,7 @@
         var PIN = document.getElementById('enterUserPin').value;
         var length = PIN.length;
 
-        if(length == 4 || !regex.test(key)) {
+        if(!regex.test(key)) {
             theEvent.returnValue = false;
             if(theEvent.preventDefault)
                 theEvent.preventDefault();
@@ -107,7 +143,7 @@
         var PIN = document.getElementById('enterNewPin').value;
         var length = PIN.length;
 
-        if(length == 4 || !regex.test(key)) {
+        if(!regex.test(key)) {
             theEvent.returnValue = false;
             if(theEvent.preventDefault)
                 theEvent.preventDefault();
