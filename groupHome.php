@@ -45,7 +45,7 @@
                     <h4 class="modal-title">Hey, </h4>
                 </div>
                 <div class="modal-body">
-                    <label for="paypal">Choose a four digit pin <span class="tip">(you'll use this to login to your group)</span></label>
+                    <label for="paypal">Choose a 4 digit pin <span class="tip">(you'll use this to login to your group)</span></label>
                     <div class="input-group">
                         <form id="pinForm" action="handleSetDetails.php" method="post">
                             <div class="input-group">
@@ -70,12 +70,11 @@
 
                             <br/>
 
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Register</button>
+                            <button type="submit" class="btn btn-primary">Register</button>
                         </form>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -96,7 +95,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
