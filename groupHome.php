@@ -11,14 +11,19 @@
 </head>
 <body>
 
+
+<?php
+    echo ($_GET['groupCode']);
+?>
 <div class="jumbotron">
     <?php
     include 'head.php';
     include 'database.php';
     ?>
 
-    <h1>Who are you?</h1>
-    <br/>
+    <div class="page-header">
+        <h1>Welcome, <small>Subtext for header</small></h1>
+    </div>    <br/>
 
     <?php
         $groupID = 1;
