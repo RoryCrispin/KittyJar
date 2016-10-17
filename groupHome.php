@@ -21,15 +21,19 @@
     <br/>
 
     <?php
+        if(isset($_GET['error'])) {
+            echo("<div class='alert alert-danger' role='alert'>Incorrect PIN!</div>");
+        }
+
         $groupID = 1;
         $sql = "SELECT * FROM User WHERE groupID = " . $groupID . " ORDER BY name";
         $result = $conn->query($sql);
         if($result->num_rows > 0) {
             while ($row = $result->fetch_array()) {
                 if(empty($row['pin'])) {
-                    echo("<button type='button' class='btn btn-primary who-btn' data-toggle='modal' data-target='#setPinModal'>" . $row['name'] . "</button><br/>");
+                    echo("<button type='button' class='btn btn-primary who-btn' data-toggle='modal' data-target='#setPinModal' userID='$row[userID]'>" . $row['name'] . "</button><br/>");
                 } else {
-                    echo("<button type='button' class='btn btn-primary who-btn' data-toggle='modal' data-target='#loginModal'>" . $row['name'] . "</button><br/>");
+                    echo("<button type='button' class='btn btn-primary who-btn' data-toggle='modal' data-target='#loginModal' userID='$row[userID]'>" . $row['name'] . "</button><br/>");
                 }
             }
         }
@@ -47,9 +51,10 @@
                 <div class="modal-body">
                     <label for="paypal">Choose a 4 digit pin <span class="tip">(you'll use this to login to your group)</span></label>
                     <div class="input-group">
-                        <form id="pinForm" action="handleSetDetails.php" method="post">
+
+                        <form id="registerForm" action="handleSetDetails.php?id=" method="post">
                             <div class="input-group">
-                                <input required type="text" name="save" id="enterNewPin" onPaste='return false'
+                                <input required type="text" name="pin" id="enterNewPin" onPaste='return false'
                                    onkeypress='validatePin(event, "enterNewPin")' class="userPin" class="form-control" maxlength="4">
                             </div>
 
@@ -65,7 +70,7 @@
 
                             <label for="emailInput">Email address <span class="tip">(optional)</span></label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="emailInput" aria-describedby="basic-addon3">
+                                <input type="text" class="form-control" name="email" id="emailInput" aria-describedby="basic-addon3">
                             </div>
 
                             <br/>
@@ -88,11 +93,13 @@
                     <h4 class="modal-title">Hey, </h4>
                 </div>
                 <div class="modal-body">
-                    <div class="input-group">
-                        <label for="enterUserPin" style="margin-right:1rem">Enter your PIN:</label>
-                        <input required type="text" id='enterUserPin' class="userPin" onkeypress='validatePin(event,"enterUserPin")'
-                               onPaste='return false' autocomplete="false" class="form-control" maxlength=4>
-                    </div>
+                    <form id="loginForm" action="handleLogin.php?id=" method="post">
+                        <div class="input-group">
+                            <label for="enterUserPin" style="margin-right:1rem">Enter your PIN:</label>
+                            <input required type="text" name="pin" id='enterUserPin' class="userPin"
+                                   onPaste='return false' autocomplete="false" class="form-control" maxlength=4> <!-- TODO: jordan's validation was fucking up pressing enter -->
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -104,6 +111,12 @@
 
     $(".who-btn").click(function() {
         name = $(this).html();
+        var userID = $(this).attr("userID");
+
+        // set the action's id to the userid
+        $("#registerForm").attr("action", "handleSetDetails.php?id=" + userID);
+        $("#loginForm").attr("action", "handleLogin.php?id=" + userID);
+
         $('.modal-title').each(function() {
             var firstName;
             if(name.indexOf(' ')!=-1) {
@@ -112,6 +125,7 @@
                 firstName = name;
             }
 
+            // just get their first name
             $(this).html("Hey, " + firstName);
         });
     });
@@ -123,8 +137,6 @@
         var key = theEvent.keyCode || theEvent.which;
         key = String.fromCharCode( key );
         var regex = /[0-9]/;
-        var PIN = document.getElementById(name).value;
-        var length = PIN.length;
 
         if(!regex.test(key)) {
             theEvent.returnValue = false;
