@@ -23,9 +23,9 @@
         }
     ?>
 
-    <p>Welcome to the simplest house bill splitting tool out there! </p>
+    <p>Welcome to the simplest bill splitting tool out there! </p>
 
-    <h6>Already got a house?</h6>
+    <h6>Already got a group?</h6>
     <form action="handleGroupLogin.php" method="post">
         <input type="text" name="code" class="form-control grpCodeText shortTextBox" placeholder="Group code"
                aria-describedby="basic-addon1">

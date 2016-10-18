@@ -68,7 +68,8 @@
 
                 $.ajax({
                     url: "registerGroup.php",
-//                    data: "people=" + JSON.stringify(people),
+//                    data: "people=" + JSON.stringify(
+// people),
                     data: {people: JSON.stringify(people), groupname: $(groupnameBox).val()},
 
                     type: 'post',
