@@ -8,3 +8,14 @@
     height: 2.6REM!important;
     display: inline;
 }
+
+.whiteBut {
+    /*background-color: #eceeef !important;*/
+    background-color: #FFFFFF !important;
+    border-color: #c9cbcb !important;
+}
+
+.whiteBut:active, .btn-success.active,
+.open > .btn-success.dropdown-toggle {
+    color: #868888 !important;
+}

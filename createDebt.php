@@ -38,12 +38,22 @@
         <br/>
     <!-- LOOP FOR ADDING MEMBERS -->
     <h6>Names:</h6>
+
+        <div class="btn-group btn-group-sm" role="group">
+            <button type="button" onclick = 'selectAllFunction()' class="btn btn-default whiteBut">Select All</button>
+            <button type="button" onclick = 'selectInverseFunction()' class="btn btn-default whiteBut">Inverse Selection</button>
+            <button type="button" onclick = 'selectNoneFunction()' class="btn btn-default whiteBut">Select None</button>
+        </div>
+
+
     <?php
         $groupID = 1;
         $sql = "SELECT name FROM User WHERE groupID = ". $groupID . " ORDER BY name";
         $result = $conn->query($sql);
+        $numOfMembers = 0;
         if($result->num_rows > 0){
             while($row = $result->fetch_array()){
+                $numOfMembers++;
                 echo ("<div class='row'>
                             <div class='col-lg-6'>
                                 <div class='input-group'>
@@ -57,6 +67,7 @@
             }
         } else
             echo('fail');
+        //echo($numOfMembers);
     ?>
     <!-- LOOP END-->
     </form>
@@ -67,23 +78,53 @@
     </div>
 
     <script>
+        var totalMembers = <?php echo($numOfMembers); ?> ;
+
         function checkBoxTest(){
             var box = document.getElementsByName('checkbox');
             var textOut = document.getElementById('eachAmount');
             var debtValue = document.getElementById('debtAmount').value;
             var numMembers = 0;
-            //TODO: DON'T HARD CODE MAX NUMBER
-            for(var i = 0; i < 2; i++){
+            for(var i = 0; i < totalMembers; i++){
                 if(box[i].checked){
                     numMembers++;
                 }
             }
-            console.log(numMembers);
             if(numMembers > 0 && debtValue > 0){
                 textOut.textContent = (debtValue / numMembers).toFixed(2);
             } else
                 textOut.textContent = '0.00';
 
+        }
+
+        function selectAllFunction(){
+            var box = document.getElementsByName('checkbox');
+            for(var i = 0; i < totalMembers; i++){
+                box[i].checked = true;
+            }
+
+            checkBoxTest();
+        }
+
+        function selectNoneFunction(){
+            var box = document.getElementsByName('checkbox');
+            for(var i = 0; i < totalMembers; i++){
+                box[i].checked = false;
+            }
+
+            checkBoxTest();
+        }
+
+        function selectInverseFunction(){
+            var box = document.getElementsByName('checkbox');
+            for(var i = 0; i < totalMembers; i++){
+                if(box[i].checked)
+                    box[i].checked = false;
+                else
+                    box[i].checked = true;
+            }
+
+            checkBoxTest();
         }
 
         function validateDebtAmount(evt) {
