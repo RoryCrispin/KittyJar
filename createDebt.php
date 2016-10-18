@@ -60,7 +60,7 @@
                                     <span class='input-group-addon'>
                                         <input type='checkbox' name='checkbox' onclick='checkBoxTest()' id = '" . $row['name'] . " checkbox'>
                                     </span>
-                                        <label class='form-control memberName'>" . $row['name'] . "</label>
+                                        <label name='memberNames' class='form-control memberName'>" . $row['name'] . "</label>
                                 </div>
                             </div>
                     </div>");
@@ -79,6 +79,7 @@
 
     <script>
         var totalMembers = <?php echo($numOfMembers); ?> ;
+        var payEach;
 
         function checkBoxTest(){
             var box = document.getElementsByName('checkbox');
@@ -90,11 +91,11 @@
                     numMembers++;
                 }
             }
+            payEach = debtValue / numMembers;
             if(numMembers > 0 && debtValue > 0){
-                textOut.textContent = (debtValue / numMembers).toFixed(2);
+                textOut.textContent = (payEach).toFixed(2);
             } else
                 textOut.textContent = '0.00';
-
         }
 
         function selectAllFunction(){
@@ -160,11 +161,23 @@
                 if(theEvent.preventDefault) 
                     theEvent.preventDefault();
             }
+            checkBoxTest();
     }
+
+        function confirmDebt(){
+            var names = document.getElementsByName('memberNames');
+            var tickedNames;
+            for (var i = 0; i < totalMembers ; i++){
+                var box = document.getElementById(names[i].innerHTML + ' checkbox')
+                if (box.checked)
+                    alert(names[i].innerHTML);
+            }
+            //var confirmTrue = confirm("Are you sure you want " + names[1].innerHTML + ' to pay £' + payEach.toFixed(2));
+        }
     </script>
 
     <br/>
-    <button type="button" class="btn btn-success">Submit Debt</button>
+    <button type="button" onclick = 'confirmDebt()' class="btn btn-success">Submit Debt</button>
     <br/>
     <br/>
     <button type="button" onclick="location.href='dashboard.php'" class="btn btn-primary">Home</button>
