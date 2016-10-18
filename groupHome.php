@@ -11,14 +11,10 @@
 </head>
 <body>
 
-
-<?php
-    echo ($_GET['groupCode']);
-?>
 <div class="jumbotron">
     <?php
-    include 'head.php';
-    include 'database.php';
+        include 'head.php';
+        include 'database.php';
     ?>
 
     <div class="page-header">
