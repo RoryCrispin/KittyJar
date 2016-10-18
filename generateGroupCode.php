@@ -23,7 +23,7 @@ function getGroupName($conn){
 
     $id = generateRandomString(4);
 
-    $sql = "select `groupPin` from `Group` where `groupPin` ='".$id ."'";
+    $sql = "select `groupCode` from `Group` where `groupCode` ='".$id ."'";
     $result = $conn->query($sql);
 
     if ($result -> num_rows == 0){

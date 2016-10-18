@@ -26,8 +26,8 @@
             echo("<div class='alert alert-danger' role='alert'>Incorrect PIN!</div>");
         }
 
-        $groupID = $_GET['id']; // TODO can't have error and id at the same time
-        $sql = "SELECT * FROM User WHERE groupID = " . $groupID . " ORDER BY name";
+        $groupCode = $_GET['code']; // TODO can't have error and id at the same time
+        $sql = "SELECT * FROM User WHERE groupCode = " . $groupCode . " ORDER BY name";
         $result = $conn->query($sql);
         if($result->num_rows > 0) {
             while ($row = $result->fetch_array()) {

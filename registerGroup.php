@@ -6,7 +6,7 @@ include "generateGroupCode.php";
 
 $data = json_decode($_POST["people"]);
 
-$sql = "INSERT INTO `GroupTable`(`groupName`, `groupPin`)
+$sql = "INSERT INTO `GroupTable`(`groupName`, `groupCode`)
 VALUES ('" .$_POST['groupname']  . "', '" . getGroupName($conn)."');";
 echo $sql;
 
@@ -21,10 +21,11 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
-$groupId = mysqli_insert_id($conn);
+$groupCode = mysqli_insert_id($conn);
 
 foreach ($data as $member){
-    $sql = "INSERT INTO `User`(	`groupID`, `name`) VALUES ('". $groupId."', '" . $member ."');";
+    //$sql = "INSERT INTO `User`(	`groupCode`, `name`) VALUES ('". $groupCode."', '" . $member ."');";
+    $sql = "INSERT INTO User (groupCode, name) VALUES '$groupCode', '$member'";
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
     } else {
@@ -40,5 +41,3 @@ $conn->close();
 
 
 ?>
-
-
