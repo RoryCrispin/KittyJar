@@ -1,3 +1,10 @@
 .pay-btn {
     float: right;
 }
+
+.date {
+    color: #a1a1a1;
+    font-size: 0.75rem;
+    font-style: italic;
+    float: right;
+}
