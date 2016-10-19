@@ -14,7 +14,7 @@
 <div class="jumbotron">
     <?php
     function errorRedirect(){
-        header( 'Location: index.php?error' ) ;
+       // header( 'Location: index.php?error' ) ;
     }
         include 'head.php';
         include 'database.php';

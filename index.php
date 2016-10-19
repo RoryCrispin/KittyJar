@@ -27,7 +27,7 @@
 
     <h6>Already got a group?</h6>
     <form action="handleGroupLogin.php" method="post">
-        <input type="text" name="code" class="form-control grpCodeText shortTextBox" placeholder="Group code"
+        <input type="text" name="groupCode" class="form-control grpCodeText shortTextBox" placeholder="Group code"
                aria-describedby="basic-addon1">
         <button type="submit" class="btn btn-primary grpCodeButton">Enter!</button>
     </form>
