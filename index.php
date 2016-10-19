@@ -19,7 +19,7 @@
         include 'head.php';
 
         if(isset($_GET['error'])) {
-            echo("<div class='alert alert-danger' role='alert'>Could not find the group that belongs to that PIN!</div>");
+            echo("<div class='alert alert-danger' role='alert'>Could not find the group that belongs to that code!</div>");
         }
     ?>
 

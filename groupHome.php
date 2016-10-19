@@ -13,10 +13,18 @@
 
 <div class="jumbotron">
     <?php
+    function errorRedirect(){
+        header( 'Location: index.php?error' ) ;
+    }
         include 'head.php';
         include 'database.php';
         include 'groupDetails.php';
-        $groupCode = $_GET['code']; // TODO can't have error and id at the same time
+    if(isset($_GET['groupCode'])){
+        $groupCode = $_GET['groupCode']; // TODO can't have error and id at the same time
+    } else {
+        errorRedirect();
+    }
+
 
     ?>
 
@@ -41,6 +49,8 @@ data-target='#setPinModal' userID='$row[userID]'>" . $row['name'] . "</button><b
 data-target='#loginModal' userID='$row[userID]'>" . $row['name'] . "</button><br/>");
                 }
             }
+        } else {
+            errorRedirect();
         }
     ?>
 
