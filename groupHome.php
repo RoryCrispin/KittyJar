@@ -42,84 +42,20 @@
         if($result->num_rows > 0) {
             while ($row = $result->fetch_array()) {
                 if(empty($row['pin'])) {
-                    echo("<button type='button' class='btn btn-primary who-btn' data-toggle='modal' 
-data-target='#setPinModal' userID='$row[userID]'>" . $row['name'] . "</button><br/>");
+                    echo("<button type='button' class='btn btn-primary who-btn' data-toggle='modal'
+data-target='#registerModal' userID='$row[userID]'>" . $row['name'] . "</button><br/>");
                 } else {
-                    echo("<button type='button' class='btn btn-primary who-btn' data-toggle='modal' 
+                    echo("<button type='button' class='btn btn-primary who-btn' data-toggle='modal'
 data-target='#loginModal' userID='$row[userID]'>" . $row['name'] . "</button><br/>");
                 }
             }
         } else {
             errorRedirect();
         }
+
+        include 'registerModal.html';
+        include 'loginModal.html';
     ?>
-
-    <div id="setPinModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Hey, </h4>
-                </div>
-                <div class="modal-body">
-                    <label for="paypal">Choose a 4 digit pin <span class="tip">(you'll use this to login to your group)</span></label>
-                    <div class="input-group">
-
-                        <form id="registerForm" action="handleSetDetails.php?id=" method="post">
-                            <div class="input-group">
-                                <input required type="text" name="pin" id="enterNewPin" onPaste='return false'
-                                   onkeypress='validatePin(event, "enterNewPin")' class="userPin" class="form-control" maxlength="4">
-                            </div>
-
-                            <br/>
-
-                            <label for="paypalInput">PayPal.me link</label>
-                            <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon3">paypal.me/</span>
-                                <input type="text" class="form-control" name="paypal" id="paypalInput" aria-describedby="basic-addon3">
-                            </div>
-
-                            <br/>
-
-                            <label for="emailInput">Email address <span class="tip">(optional)</span></label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="email" id="emailInput" aria-describedby="basic-addon3">
-                            </div>
-
-                            <br/>
-
-                            <button type="submit" class="btn btn-primary">Register</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="loginModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Hey, </h4>
-                </div>
-                <div class="modal-body">
-                    <form id="loginForm" action="handleUserLogin.php?id=" method="post">
-                        <div class="input-group">
-                            <label for="enterUserPin" style="margin-right:1rem">Enter your PIN:</label>
-                            <input required type="text" name="pin" id='enterUserPin' class="userPin"
-                                   onPaste='return false' autocomplete="false" class="form-control" maxlength=4> <!-- TODO: jordan's validation was fucking up pressing enter -->
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <script>
     var name;

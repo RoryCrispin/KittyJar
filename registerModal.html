@@ -1,0 +1,43 @@
+<div id="registerModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Hey, </h4>
+            </div>
+            <div class="modal-body">
+                <label for="paypal">Choose a 4 digit pin <span class="tip">(you'll use this to login to your group)</span></label>
+                <div class="input-group">
+
+                    <form id="registerForm" action="handleSetDetails.php?id=" method="post">
+                        <div class="input-group">
+                            <input required type="text" name="pin" id="enterNewPin" onPaste='return false'
+                               onkeypress='validatePin(event, "enterNewPin")' class="userPin" class="form-control" maxlength="4">
+                        </div>
+
+                        <br/>
+
+                        <label for="paypalInput">PayPal.me link</label>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon3">paypal.me/</span>
+                            <input type="text" class="form-control" name="paypal" id="paypalInput" aria-describedby="basic-addon3">
+                        </div>
+
+                        <br/>
+
+                        <label for="emailInput">Email address <span class="tip">(optional)</span></label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="email" id="emailInput" aria-describedby="basic-addon3">
+                        </div>
+
+                        <br/>
+
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

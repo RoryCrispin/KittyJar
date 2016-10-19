@@ -1,0 +1,22 @@
+<div id="loginModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Hey, </h4>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm" action="handleUserLogin.php?id=" method="post">
+                    <div class="input-group">
+                        <label for="enterUserPin" style="margin-right:1rem">Enter your PIN:</label>
+                        <input required type="text" name="pin" id='enterUserPin' class="userPin"
+                               onPaste='return false' autocomplete="false" class="form-control" maxlength=4> <!-- TODO: jordan's validation was fucking up pressing enter -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
