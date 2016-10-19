@@ -21,12 +21,12 @@
     <h1>Your Dashboard</h1>
     <br/>
 
-    <h6>You're Owed</h6>
+    <h6>Total Owed:</h6>
     <div class="dashItem">
         <span class="owed h2">£</span><span class="owed h2" id="dashOwed"></span>
     </div>
 
-    <h6>You Owe</h6>
+    <h6>Total You Owe:</h6>
     <div class="dashItem">
         <span class="owe h2">£</span><span class="owe h2" id="dashOwe"></span>
     </div>

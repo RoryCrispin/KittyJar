@@ -6,11 +6,11 @@
      <link rel="stylesheet" href="css/createDebt.css" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    
+
 
 
     <meta charset="UTF-8">
-    <title>KittyJar - Create a Debt</title>
+    <title>KittyJar - Create Debt</title>
 </head>
 <body>
 
@@ -20,7 +20,7 @@
         include 'database.php';
     ?>
 
-    <h1>Create a Debt</h1>
+    <h1>Create Debt</h1>
     <br/>
 
     <h6>Amount:</h6>
