@@ -1,11 +1,29 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jordanberni
- * Date: 19/10/2016
- * Time: 4:43 PM
- */
-echo "hello";
-
+include "database.php";
 $data = json_decode($_POST["hello"]);
-var_dump($data);
+
+$sql = 'INSERT INTO `Debt`( `amount`, `name`) VALUES ('. $data -> dAmount.',"'. $data->dRef . '")';
+
+if ( $conn->query($sql) === TRUE){
+    echo 'Success!';
+} else {
+    echo ("Error: " . $sql . " " . $conn->error);
+}
+
+$debtID = $conn -> insert_id;
+
+foreach($data -> uID as $user){
+    $sql = 'INSERT INTO `DebtUser`(`debtID`, `userID`) VALUES (' . $debtID . ', ' . $user . ')';
+    if ( $conn->query($sql) === TRUE){
+        echo 'Success!';
+    } else {
+        echo ("Error: " . $sql . " " . $conn->error);
+    }
+}
+
+
+$conn ->close();
+
+
+
+

@@ -141,24 +141,24 @@
 
             if(length == 0 && !numbersKey.test(key)){
                 theEvent.returnValue = false;
-                if(theEvent.preventDefault) 
-                    theEvent.preventDefault();  
+                if(theEvent.preventDefault)
+                    theEvent.preventDefault();
             }
 
             if(stopPlace > 0 && length == (stopPlace + 3)){
                 theEvent.returnValue = false;
-                if(theEvent.preventDefault) 
+                if(theEvent.preventDefault)
                     theEvent.preventDefault();
             }
 
             if(debtValue.indexOf('.') != -1 && decimalKey.test(key)){
                     theEvent.returnValue = false;
-                    if(theEvent.preventDefault) 
+                    if(theEvent.preventDefault)
                         theEvent.preventDefault();
             }
             if( !regex.test(key)) {
                 theEvent.returnValue = false;
-                if(theEvent.preventDefault) 
+                if(theEvent.preventDefault)
                     theEvent.preventDefault();
             }
             checkBoxTest();
@@ -206,17 +206,12 @@
                 if(confirmTrue){
                     var toPost = {dRef : ref, dAmount : payEach, uID : userIDs}; //TODO dAmount unified or single??
 
-                    //alert(JSON.stringify(toPost));
-
-//                    alert ("SENDING::");
                     $.ajax ({
                         url: 'handleCreateDebt.php',
                         data: {hello: JSON.stringify(toPost)},
-//                        data: {hello: "hey!"},
                         type: 'post',
-                        //dataType: 'json',
                         success: function(ret){
-                            alert(ret);
+                            //alert(ret); TODO REDIRECT
                         }
                     });
                 }
