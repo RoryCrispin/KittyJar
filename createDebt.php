@@ -47,8 +47,8 @@
 
 
     <?php
-        $groupID = 1;
-        $sql = "SELECT name FROM User WHERE groupID = ". $groupID . " ORDER BY name";
+        $groupCode = '8jxp';
+        $sql = 'SELECT * FROM User WHERE groupCode = "'. $groupCode . '" ORDER BY name';
         $result = $conn->query($sql);
         $numOfMembers = 0;
         if($result->num_rows > 0){
@@ -58,7 +58,7 @@
                             <div class='col-lg-6'>
                                 <div class='input-group'>
                                     <span class='input-group-addon'>
-                                        <input type='checkbox' name='checkbox' onclick='checkBoxTest()' id = '" . $row['name'] . " checkbox'>
+                                        <input type='checkbox' userID = '" . $row['userID'] . "' name='checkbox' onclick='checkBoxTest()' id = '" . $row['name'] . " checkbox'>
                                     </span>
                                         <label name='memberNames' class='form-control memberName'>" . $row['name'] . "</label>
                                 </div>
@@ -165,14 +165,62 @@
     }
 
         function confirmDebt(){
+            checkBoxTest();
+
             var names = document.getElementsByName('memberNames');
-            var tickedNames;
-            for (var i = 0; i < totalMembers ; i++){
-                var box = document.getElementById(names[i].innerHTML + ' checkbox')
-                if (box.checked)
-                    alert(names[i].innerHTML);
+            var ref = document.getElementById('debtReference').value;
+            var tickedNames = "";
+            var totalTicked = [];
+            var x = 0;
+            var userIDs = [];
+            for (var i = 0; i < totalMembers ; i++) {
+                var box = document.getElementById(names[i].innerHTML + ' checkbox');
+                if (box.checked) {
+                    totalTicked[x] = names[i].innerHTML;
+                    userIDs[x] = $(box).attr('userID');
+                    x++;
+                }
             }
-            //var confirmTrue = confirm("Are you sure you want " + names[1].innerHTML + ' to pay £' + payEach.toFixed(2));
+            for (i = 0; i < totalTicked.length ; i++){
+                if(i == totalTicked.length - 1 && i > 0){
+                    tickedNames = tickedNames + "and " + totalTicked[i];
+                } else if (totalTicked.length == 1){
+                    tickedNames = tickedNames + totalTicked[i];
+                } else if (i == totalTicked.length - 2){
+                    tickedNames = tickedNames + totalTicked[i] + " ";
+                } else{
+                    tickedNames = tickedNames + totalTicked[i] + ", ";
+                }
+            }
+            if(payEach <= 0 || isNaN(payEach)){
+                alert("Please enter a debt amount");
+            } else if(ref == ""){
+                alert("Please enter a reference");
+            }else if (tickedNames == 0){
+                alert("Please choose who needs to pay");
+            } else {
+                var confirmTrue = confirm("Are you sure you want " + tickedNames + ' to pay £' + payEach.toFixed(2) + " for " + ref);
+                //dName = ref
+                //dAmount = payEach
+                //ids = userIDs[]
+                if(confirmTrue){
+                    var toPost = {dRef : ref, dAmount : payEach, uID : userIDs}; //TODO dAmount unified or single??
+
+                    //alert(JSON.stringify(toPost));
+
+//                    alert ("SENDING::");
+                    $.ajax ({
+                        url: 'handleCreateDebt.php',
+                        data: {hello: JSON.stringify(toPost)},
+//                        data: {hello: "hey!"},
+                        type: 'post',
+                        //dataType: 'json',
+                        success: function(ret){
+                            alert(ret);
+                        }
+                    });
+                }
+            }
         }
     </script>
 
