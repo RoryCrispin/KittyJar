@@ -8,13 +8,13 @@
 include "database.php";
 
 function getGroupName($groupCode, $conn){
-    $sql = 'SELECT `groupName` FROM `Group` WHERE `groupPin` = "ds12"';
+    $sql = 'SELECT `groupName` FROM `GroupTable` WHERE `groupCode` = "'.$groupCode.'"';
     $result = $conn->query($sql);
-//    if ($result-> num_rows >0){
-//        return $result[0];
-//    }
-    echo $result;
-    return $result;
+    if ($result-> num_rows >0){
+        return $result -> fetch_assoc()['groupName'];
+    } else return 'unknown group';
+   // echo $result;
+    //return $result;
 }
 
-echo getGroupName("ds12", $conn);
+//echo getGroupName("abxy", $conn);

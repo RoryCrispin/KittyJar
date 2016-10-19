@@ -16,11 +16,8 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
-//$groupCode = mysqli_insert_id($conn);
-//echo $groupCode
 
 foreach ($data as $member){
-    //$sql = "INSERT INTO `User`(	`groupCode`, `name`) VALUES ('". $groupCode."', '" . $member ."');";
     $sql = "INSERT INTO User (groupCode, name) VALUES ('$groupCode', '$member')";
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
@@ -32,6 +29,8 @@ foreach ($data as $member){
 
 
 $conn->close();
+
+echo "<script> window.location.replace(\"groupHome.php?code=".$groupCode."\" . ); </script>";
 
 
 

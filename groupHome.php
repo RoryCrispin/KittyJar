@@ -15,10 +15,13 @@
     <?php
         include 'head.php';
         include 'database.php';
+        include 'groupDetails.php';
+        $groupCode = $_GET['code']; // TODO can't have error and id at the same time
+
     ?>
 
     <div class="page-header">
-        <h1>Welcome, <small>Subtext for header</small></h1>
+        <h1>Welcome, <?php echo( getGroupName($groupCode, $conn)) ?><small> <?php echo($groupCode) ?></small></h1>
     </div>    <br/>
 
     <?php
@@ -26,15 +29,16 @@
             echo("<div class='alert alert-danger' role='alert'>Incorrect PIN!</div>");
         }
 
-        $groupCode = $_GET['code']; // TODO can't have error and id at the same time
-        $sql = "SELECT * FROM User WHERE groupCode = " . $groupCode . " ORDER BY name";
+        $sql = 'SELECT * FROM `User` WHERE `groupCode` = "' . $groupCode . '" ORDER BY `name`';
         $result = $conn->query($sql);
         if($result->num_rows > 0) {
             while ($row = $result->fetch_array()) {
                 if(empty($row['pin'])) {
-                    echo("<button type='button' class='btn btn-primary who-btn' data-toggle='modal' data-target='#setPinModal' userID='$row[userID]'>" . $row['name'] . "</button><br/>");
+                    echo("<button type='button' class='btn btn-primary who-btn' data-toggle='modal' 
+data-target='#setPinModal' userID='$row[userID]'>" . $row['name'] . "</button><br/>");
                 } else {
-                    echo("<button type='button' class='btn btn-primary who-btn' data-toggle='modal' data-target='#loginModal' userID='$row[userID]'>" . $row['name'] . "</button><br/>");
+                    echo("<button type='button' class='btn btn-primary who-btn' data-toggle='modal' 
+data-target='#loginModal' userID='$row[userID]'>" . $row['name'] . "</button><br/>");
                 }
             }
         }

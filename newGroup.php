@@ -74,7 +74,9 @@
 
                     type: 'post',
                     success: function (people) {
-                        alert(people);
+                        //alert(people);
+                        //window.location.replace("groupHome.php?code=" . );
+
                     }
                 });
 
