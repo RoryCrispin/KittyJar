@@ -3,3 +3,8 @@
 .owe { color: #bd4147; }
 
 .dashItem { margin-bottom: 2rem; }
+
+.nav-btn {
+    width: 12rem;
+    margin-bottom: 0.5rem;
+}

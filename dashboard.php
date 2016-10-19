@@ -21,21 +21,19 @@
     <h1>Your Dashboard</h1>
     <br/>
 
-    <h6>You're Owed</h6>
+    <h6>Total Owed:</h6>
     <div class="dashItem">
         <span class="owed h2">£</span><span class="owed h2" id="dashOwed"></span>
     </div>
 
-    <h6>You Owe</h6>
+    <h6>Total You Owe:</h6>
     <div class="dashItem">
         <span class="owe h2">£</span><span class="owe h2" id="dashOwe"></span>
     </div>
 
-    <br/>
-
-    <button type="button" onclick="location.href='viewDebts.php'" class="btn btn-primary">View Debts</button>
-    <button type="button" onclick="location.href='createDebt.php'" class="btn btn-primary">Create a Debt</button>
-    <button type="button" class="btn btn-primary">Make Payments</button>
+    <button type="button" onclick="location.href='viewDebts.php'" class="btn btn-primary nav-btn">Debts You Owe</button><br/>
+    <button type="button" class="btn btn-primary nav-btn">Debts You're Owed</button><br/>
+    <button type="button" onclick="location.href='createDebt.php'" class="btn btn-primary nav-btn">Create a Debt</button>
 
 </div>
 
