@@ -73,9 +73,9 @@
                     data: {people: JSON.stringify(people), groupname: $(groupnameBox).val()},
 
                     type: 'post',
-                    success: function (people) {
+                    success: function (data) {
                         //alert(people);
-                        //window.location.replace("groupHome.php?code=" . );
+                        window.location.replace("groupHome.php?groupCode=" + data );
 
                     }
                 });
