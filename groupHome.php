@@ -2,35 +2,34 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css" >
-    <link rel="stylesheet" href="css/index.css" >
+    <link rel="stylesheet" href="css/groupHome.css" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
     <meta charset="UTF-8">
     <title>KittyJar - Who are you?</title>
 </head>
-<body>
 
+<body>
 <div class="jumbotron">
     <?php
-    function errorRedirect(){
-       // header( 'Location: index.php?error' ) ;
-    }
-        include 'head.php';
-        include 'database.php';
-        include 'groupDetails.php';
-    if(isset($_GET['groupCode'])){
-        $groupCode = $_GET['groupCode']; // TODO can't have error and id at the same time
-    } else {
-        errorRedirect();
-    }
-
-
+        function errorRedirect(){
+           // header( 'Location: index.php?error' ) ;
+        }
+            include 'head.php';
+            include 'database.php';
+            include 'groupDetails.php';
+        if(isset($_GET['groupCode'])){
+            $groupCode = $_GET['groupCode']; // TODO can't have error and id at the same time
+        } else {
+            errorRedirect();
+        }
     ?>
 
     <div class="page-header">
         <h1>Welcome, <?php echo( getGroupName($groupCode, $conn)) ?><small> <?php echo($groupCode) ?></small></h1>
-    </div>    <br/>
+    </div>
+    <br/>
 
     <?php
         if(isset($_GET['error'])) {
@@ -56,6 +55,7 @@ data-target='#loginModal' userID='$row[userID]'>" . $row['name'] . "</button><br
         include 'registerModal.html';
         include 'loginModal.html';
     ?>
+</div>
 
 <script>
     var name;

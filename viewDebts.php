@@ -19,8 +19,11 @@
         include 'head.php';
     ?>
 
+    <h1>Your Debts</h1>
+    <br/>
+
     <ul class="list-group">
-        <li class="list-group-item list-group-item-danger">Unpaid Debt 1 <button type="button" class="btn btn-primary btn-xs pay-btn">Pay now</button></li>
+        <li class="list-group-item list-group-item-danger">Unpaid Debt 1 <button type="button" class="btn btn-primary btn-sm pay-btn">Pay now</button></li>
         <li class="list-group-item list-group-item-danger">Unpaid Debt 2</li>
         <li class="list-group-item list-group-item-danger">Unpaid Debt 3</li>
     </ul>

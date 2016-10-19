@@ -4,36 +4,3 @@
 .grpCodeButton {
     vertical-align: top;
 }
-
-.owed {
-    color: #449d44;
-}
-.owe {
-    color: #bd4147;
-}
-
-.dashItem {
-    margin-bottom: 2rem;
-}
-
-.who-btn {
-    margin-bottom: 1rem;
-    width: 15rem;
-}
-
-.tip {
-    color: #a1a1a1;
-    font-size: 0.75rem;
-}
-
-.userPin {
-    width: 5rem;
-}
-
-#paypalInput {
-    width: 10rem;
-}
-
-#emailInput {
-    width: 16.5rem;
-}

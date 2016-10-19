@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css" >
-    <link rel="stylesheet" href="css/index.css" >
+    <link rel="stylesheet" href="css/dashboard.css" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/countUp.min.js"></script>
-
 
     <meta charset="UTF-8">
     <title>KittyJar - Dashboard</title>
@@ -34,7 +33,7 @@
 
     <br/>
 
-    <button type="button" class="btn btn-primary">View Debts</button>
+    <button type="button" onclick="location.href='viewDebts.php'" class="btn btn-primary">View Debts</button>
     <button type="button" onclick="location.href='createDebt.php'" class="btn btn-primary">Create a Debt</button>
     <button type="button" class="btn btn-primary">Make Payments</button>
 
