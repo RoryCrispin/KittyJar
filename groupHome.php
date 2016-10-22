@@ -27,9 +27,11 @@
     ?>
 
     <div class="page-header">
-        <h1>Welcome, <?php echo( getGroupName($groupCode, $conn)) ?><small> <?php echo($groupCode) ?></small></h1>
+        <!--<h1>Welcome, <?php echo( getGroupName($groupCode, $conn)) ?><small> <?php echo($groupCode) ?></small></h1>-->
+        <h1><?php echo( getGroupName($groupCode, $conn)) ?></h1>
+        <br/>
+        <h4>Who are you?</h4>
     </div>
-    <br/>
 
     <?php
         if(isset($_GET['error'])) {
@@ -42,10 +44,10 @@
             while ($row = $result->fetch_array()) {
                 if(empty($row['pin'])) {
                     echo("<button type='button' class='btn btn-primary who-btn' data-toggle='modal'
-data-target='#registerModal' userID='$row[userID]'>" . $row['name'] . "</button><br/>");
+                            data-target='#registerModal' userID='$row[userID]'>" . $row['name'] . "</button><br/>");
                 } else {
                     echo("<button type='button' class='btn btn-primary who-btn' data-toggle='modal'
-data-target='#loginModal' userID='$row[userID]'>" . $row['name'] . "</button><br/>");
+                        data-target='#loginModal' userID='$row[userID]'>" . $row['name'] . "</button><br/>");
                 }
             }
         } else {
@@ -83,7 +85,7 @@ data-target='#loginModal' userID='$row[userID]'>" . $row['name'] . "</button><br
 </script>
 
 <script>
-    function validatePin(evt, name) {
+    function validatePin(evt) {
         var theEvent = evt || window.event;
         var key = theEvent.keyCode || theEvent.which;
         key = String.fromCharCode( key );
