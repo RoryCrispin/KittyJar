@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="css/groupHome.css" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/validatePin.js"></script>
 
     <meta charset="UTF-8">
     <title>KittyJar - Who are you?</title>
@@ -47,7 +48,7 @@
                             data-target='#registerModal' userID='$row[userID]'>" . $row['name'] . "</button><br/>");
                 } else {
                     echo("<button type='button' class='btn btn-primary who-btn' data-toggle='modal'
-                        data-target='#loginModal' userID='$row[userID]'>" . $row['name'] . "</button><br/>");
+                        data-target='#loginModal' userID='$row[userID]' groupCode='$groupCode'>" . $row['name'] . "</button><br/>");
                 }
             }
         } else {
@@ -65,10 +66,11 @@
     $(".who-btn").click(function() {
         name = $(this).html();
         var userID = $(this).attr("userID");
+        var groupCode = $(this).attr("groupCode");
 
         // set the action's id to the userid
-        $("#registerForm").attr("action", "handleSetDetails.php?id=" + userID);
-        $("#loginForm").attr("action", "handleUserLogin.php?id=" + userID);
+        $("#registerForm").attr("action", "handleSetDetails.php?id=" + userID + "&groupCode=" + groupCode);
+        $("#loginForm").attr("action", "handleUserLogin.php?id=" + userID + "&groupCode=" + groupCode);
 
         $('.modal-title').each(function() {
             var firstName;
@@ -82,21 +84,6 @@
             $(this).html("Hey, " + firstName);
         });
     });
-</script>
-
-<script>
-    function validatePin(evt) {
-        var theEvent = evt || window.event;
-        var key = theEvent.keyCode || theEvent.which;
-        key = String.fromCharCode( key );
-        var regex = /[0-9]/;
-
-        if(!regex.test(key)) {
-            theEvent.returnValue = false;
-            if(theEvent.preventDefault)
-                theEvent.preventDefault();
-        }
-    }
 </script>
 
 </body>

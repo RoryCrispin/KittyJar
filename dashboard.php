@@ -33,7 +33,7 @@
 
     <button type="button" onclick="location.href='viewDebts.php'" class="btn btn-primary nav-btn">Debts You Owe</button><br/>
     <button type="button" class="btn btn-primary nav-btn">Debts You're Owed</button><br/>
-    <button type="button" onclick="location.href='createDebt.php'" class="btn btn-primary nav-btn">Create a Debt</button>
+    <button type="button" onclick="location.href='createDebt.php?groupCode=<?php echo($_GET['groupCode']) ?>'" class="btn btn-primary nav-btn">Create a Debt</button>
 
 </div>
 

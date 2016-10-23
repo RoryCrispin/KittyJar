@@ -7,8 +7,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
-
-
     <meta charset="UTF-8">
     <title>KittyJar - Create Debt</title>
 </head>
@@ -39,7 +37,7 @@
     <!-- LOOP FOR ADDING MEMBERS -->
     <h6>Names:</h6>
 
-        <div class="btn-group btn-group-sm" role="group">
+        <div id="controlBox" class="btn-group btn-group-sm" role="group">
             <button type="button" onclick = 'selectAllFunction()' class="btn btn-default whiteBut">Select All</button>
             <button type="button" onclick = 'selectInverseFunction()' class="btn btn-default whiteBut">Inverse Selection</button>
             <button type="button" onclick = 'selectNoneFunction()' class="btn btn-default whiteBut">Select None</button>
@@ -47,7 +45,7 @@
 
 
     <?php
-        $groupCode = '8jxp';
+        $groupCode = $_GET['groupCode'];
         $sql = 'SELECT * FROM User WHERE groupCode = "'. $groupCode . '" ORDER BY name';
         $result = $conn->query($sql);
         $numOfMembers = 0;
@@ -56,11 +54,11 @@
                 $numOfMembers++;
                 echo ("<div class='row'>
                             <div class='col-lg-6'>
-                                <div class='input-group'>
+                                <div class='input-group memberBox'>
                                     <span class='input-group-addon'>
                                         <input type='checkbox' userID = '" . $row['userID'] . "' name='checkbox' onclick='checkBoxTest()' id = '" . $row['name'] . " checkbox'>
                                     </span>
-                                        <label name='memberNames' class='form-control memberName'>" . $row['name'] . "</label>
+                                    <label name='memberNames' class='form-control memberName'>" . $row['name'] . "</label>
                                 </div>
                             </div>
                     </div>");
@@ -73,7 +71,7 @@
     </form>
     <br/>
     <div class="input-group">
-        <span class="input-group-addon">Each person pays: £</span>
+        <span class="input-group-addon">Everyone pays: £</span>
         <label id= 'eachAmount' class='form-control debtAmount'>0.00</label>
     </div>
 
@@ -221,8 +219,7 @@
 
     <br/>
     <button type="button" onclick = 'confirmDebt()' class="btn btn-success">Submit Debt</button>
-    <br/>
-    <br/>
+    <br/><br/>
     <button type="button" onclick="location.href='dashboard.php'" class="btn btn-primary">Home</button>
 
 

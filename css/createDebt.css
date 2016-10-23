@@ -19,3 +19,11 @@
 .open > .btn-success.dropdown-toggle {
     color: #868888 !important;
 }
+
+#controlBox {
+    margin-bottom: 0.5rem;
+}
+
+.memberBox {
+    margin-bottom: 0.25rem;
+}
