@@ -78,16 +78,14 @@
     <script>
         var totalMembers = <?php echo($numOfMembers); ?> ;
         var payEach;
+        var box = document.getElementsByName('checkbox');
 
         function checkBoxTest(){
-            var box = document.getElementsByName('checkbox');
             var textOut = document.getElementById('eachAmount');
             var debtValue = document.getElementById('debtAmount').value;
             var numMembers = 0;
             for(var i = 0; i < totalMembers; i++){
-                if(box[i].checked){
-                    numMembers++;
-                }
+                if(box[i].checked) numMembers++;
             }
             payEach = debtValue / numMembers;
             if(numMembers > 0 && debtValue > 0){
@@ -97,25 +95,16 @@
         }
 
         function selectAllFunction(){
-            var box = document.getElementsByName('checkbox');
-            for(var i = 0; i < totalMembers; i++){
-                box[i].checked = true;
-            }
-
+            for(var i = 0; i < totalMembers; i++) box[i].checked = true;
             checkBoxTest();
         }
 
         function selectNoneFunction(){
-            var box = document.getElementsByName('checkbox');
-            for(var i = 0; i < totalMembers; i++){
-                box[i].checked = false;
-            }
-
+            for(var i = 0; i < totalMembers; i++) box[i].checked = false;
             checkBoxTest();
         }
 
         function selectInverseFunction(){
-            var box = document.getElementsByName('checkbox');
             for(var i = 0; i < totalMembers; i++){
                 if(box[i].checked)
                     box[i].checked = false;
@@ -132,35 +121,23 @@
             key = String.fromCharCode( key );
             var regex = /[0-9]|\./;
             var numbersKey = /[0-9]/;
-            var decimalKey = /\./;
             var debtValue = document.getElementById('debtAmount').value;
-            var stopPlace = debtValue.indexOf(".");
-            var length = debtValue.length;
 
-            if(length == 0 && !numbersKey.test(key)){
-                theEvent.returnValue = false;
-                if(theEvent.preventDefault)
-                    theEvent.preventDefault();
-            }
+            if(debtValue.length == 0 && !numbersKey.test(key)) preventKeyPress(theEvent);
 
-            if(stopPlace > 0 && length == (stopPlace + 3)){
-                theEvent.returnValue = false;
-                if(theEvent.preventDefault)
-                    theEvent.preventDefault();
-            }
+            if(stopPlace > 0 && debtValue.length == (debtValue.indexOf(".") + 3)) preventKeyPress(theEvent);
 
-            if(debtValue.indexOf('.') != -1 && decimalKey.test(key)){
-                    theEvent.returnValue = false;
-                    if(theEvent.preventDefault)
-                        theEvent.preventDefault();
-            }
-            if( !regex.test(key)) {
-                theEvent.returnValue = false;
-                if(theEvent.preventDefault)
-                    theEvent.preventDefault();
-            }
+            if(debtValue.indexOf('.') != -1 && '.'==key) preventKeyPress(theEvent);
+
+            if(!regex.test(key)) preventKeyPress(theEvent);
+
             checkBoxTest();
-    }
+        }
+
+        function preventKeyPress(theEvent) {
+            theEvent.returnValue = false;
+            if(theEvent.preventDefault) theEvent.preventDefault();
+        }
 
         function confirmDebt(){
             checkBoxTest();
