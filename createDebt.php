@@ -48,7 +48,7 @@
 
 
     <?php
-        $groupCode = $_GET['groupCode'];
+        $groupCode = 'ub2k';
         $sql = 'SELECT * FROM User WHERE groupCode = "'. $groupCode . '" ORDER BY name';
         $result = $conn->query($sql);
         $numOfMembers = 0;
