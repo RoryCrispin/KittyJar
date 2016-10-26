@@ -105,7 +105,7 @@ function confirmDebt(){
             var toPost = {dRef : ref, dAmount : payEach, uID : userIDs};
 
             $.ajax ({
-                url: '../../func/handleCreateDebt.php',
+                url: 'func/handleCreateDebt.php',
                 data: {hello: JSON.stringify(toPost)},
                 type: 'post',
                 success: function(ret){
