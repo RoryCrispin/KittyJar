@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" >
     <link rel="stylesheet" href="css/dashboard.css" >
     <script src="js/countUp.min.js"></script>
+    <script src="js/pageCode/dashboard.js"></script>
     <?php include 'libs.php'; ?>
 
     <meta charset="UTF-8">
@@ -36,15 +37,7 @@
 
 </div>
 
-<script>
-    $(document).ready(function() {
-        var owedAnim = new CountUp("dashOwed", 0, 105.56, 2, 0.8);
-        owedAnim.start();
 
-        var oweAnim = new CountUp("dashOwe", 0, 21.02, 2, 0.8);
-        oweAnim.start();
-    });
-</script>
 
 </body>
 </html>
