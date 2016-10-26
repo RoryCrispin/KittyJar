@@ -102,10 +102,10 @@ function confirmDebt(){
         //dAmount = payEach
         //ids = userIDs[]
         if(confirmTrue){
-            var toPost = {dRef : ref, dAmount : payEach, uID : userIDs}; //TODO dAmount unified or single??
+            var toPost = {dRef : ref, dAmount : payEach, uID : userIDs};
 
             $.ajax ({
-                url: 'func/handleCreateDebt.php',
+                url: '../func/handleCreateDebt.php',
                 data: {hello: JSON.stringify(toPost)},
                 type: 'post',
                 success: function(ret){
