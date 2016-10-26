@@ -3,8 +3,8 @@
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css" >
     <link rel="stylesheet" href="css/groupHome.css" >
-    <script src="js/pageCode/groupHome.js"></script>
     <?php include 'libs.php'; ?>
+    <script src="js/pageCode/groupHome.js"></script>
 
     <meta charset="UTF-8">
     <title>KittyJar - Who are you?</title>

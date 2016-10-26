@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/newGroup.css">
-    <script src="js/pageCode/newGroup.js"></script>
 
     <?php include 'libs.php'; ?>
+    <script src="js/pageCode/newGroup.js"></script>
+
 
     <meta charset="UTF-8">
     <title>KittyJar - Create Group</title>
@@ -18,7 +18,6 @@
 
     <h3> Add Members</h3>
     <div class="dynamic-form">
-
 
         <form>
             <div class="inputs">

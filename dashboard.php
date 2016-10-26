@@ -4,8 +4,8 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" >
     <link rel="stylesheet" href="css/dashboard.css" >
     <script src="js/countUp.min.js"></script>
-    <script src="js/pageCode/dashboard.js"></script>
     <?php include 'libs.php'; ?>
+    <script src="js/pageCode/dashboard.js"></script>
 
     <meta charset="UTF-8">
     <title>KittyJar - Dashboard</title>

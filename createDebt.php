@@ -5,8 +5,10 @@
     <link rel="stylesheet" href="css/index.css" >
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/createDebt.css" >
-    <script src="js/pageCode/createDebt.js"></script>
     <?php include 'libs.php'; ?>
+    <script src="js/pageCode/createDebt.js"></script>
+
+
 
     <meta charset="UTF-8">
     <title>KittyJar - Create Debt</title>
