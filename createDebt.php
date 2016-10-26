@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="css/index.css" >
     <link rel="stylesheet" href="css/createDebt.css" >
 
-    <?php 'libs.php'; ?>
+    <?php include 'libs.php'; ?>
 
     <meta charset="UTF-8">
     <title>KittyJar - Create Debt</title>

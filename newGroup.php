@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>KittyJar - Create Group</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/newGroup.css">
 
-    <?php 'libs.php'; ?>
+    <?php include 'libs.php'; ?>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
+    <meta charset="UTF-8">
+    <title>KittyJar - Create Group</title>
 </head>
 <body>
 

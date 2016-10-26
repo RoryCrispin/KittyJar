@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css" >
     <link rel="stylesheet" href="css/groupHome.css" >
-    <?php 'libs.php'; ?>
+    <?php include 'libs.php'; ?>
 
     <meta charset="UTF-8">
     <title>KittyJar - Who are you?</title>
