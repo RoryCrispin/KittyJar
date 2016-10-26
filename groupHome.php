@@ -3,9 +3,7 @@
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css" >
     <link rel="stylesheet" href="css/groupHome.css" >
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/validatePin.js"></script>
+    <?php 'libs.php'; ?>
 
     <meta charset="UTF-8">
     <title>KittyJar - Who are you?</title>
@@ -18,8 +16,8 @@
            // header( 'Location: index.php?error' ) ;
         }
             include 'head.php';
-            include 'database.php';
-            include 'groupDetails.php';
+            include 'func/database.php';
+            include 'func/groupDetails.php';
         if(isset($_GET['groupCode'])){
             $groupCode = $_GET['groupCode']; // TODO can't have error and id at the same time
         } else {
@@ -68,9 +66,13 @@
         var userID = $(this).attr("userID");
         var groupCode = $(this).attr("groupCode");
 
+        Cookies.set('test', groupCode, {expires: 7});
+        var c = Cookies.get('test');
+        console.log(c);
+
         // set the action's id to the userid
-        $("#registerForm").attr("action", "handleSetDetails.php?id=" + userID + "&groupCode=" + groupCode);
-        $("#loginForm").attr("action", "handleUserLogin.php?id=" + userID + "&groupCode=" + groupCode);
+        $("#registerForm").attr("action", "func/handleSetDetails.php?id=" + userID + "&groupCode=" + groupCode);
+        $("#loginForm").attr("action", "func/handleUserLogin.php?id=" + userID + "&groupCode=" + groupCode);
 
         $('.modal-title').each(function() {
             var firstName;

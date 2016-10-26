@@ -11,7 +11,7 @@
                 <label for="paypal">Choose a 4 digit pin <span class="tip">(you'll use this to login to your group)</span></label>
                 <div class="input-group">
 
-                    <form id="registerForm" action="handleSetDetails.php?id=" method="post">
+                    <form id="registerForm" action="func/handleSetDetails.php?id=" method="post">
                         <div class="input-group">
                             <input required type="text" name="pin" id="enterNewPin" onPaste='return false'
                                onkeypress='validatePin(event)' class="userPin" class="form-control" maxlength="4">

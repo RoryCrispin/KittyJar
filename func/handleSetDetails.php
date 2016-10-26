@@ -12,6 +12,6 @@
     mysqli_query($conn, $sql);
     $conn->close();
 
-    header('Location: dashboard.php?id=' . $id . '&groupCode=' . $groupCode);
+    header('Location: ../dashboard.php?id=' . $id . '&groupCode=' . $groupCode); //TODO
 
 

@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>KittyJar - Create Group</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/newGroup.css">
 
+    <?php 'libs.php'; ?>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -67,7 +68,7 @@
                 console.log(JSON.stringify(people));
 
                 $.ajax({
-                    url: "registerGroup.php",
+                    url: "func/registerGroup.php",
 //                    data: "people=" + JSON.stringify(
 // people),
                     data: {people: JSON.stringify(people), groupname: $(groupnameBox).val()},

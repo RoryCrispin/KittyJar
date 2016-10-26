@@ -3,10 +3,8 @@
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/viewDebts.css">
-    <link rel="stylesheet" href="css/main.css">
 
-    <script src="js/bootstrap.min.js"></script>
-
+    <?php 'libs.php'; ?>
 
     <meta charset="UTF-8">
     <title>KittyJar - View Debts</title>

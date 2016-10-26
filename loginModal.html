@@ -8,11 +8,11 @@
                 <h4 class="modal-title">Hey, </h4>
             </div>
             <div class="modal-body">
-                <form id="loginForm" action="handleUserLogin.php?id=" method="post">
+                <form id="loginForm" action="func/handleUserLogin.php?id=" method="post">
                     <div class="input-group">
                         <label for="enterUserPin" style="margin-right:1rem">Enter your PIN:</label>
                         <input required type="text" name="pin" id='enterUserPin' class="userPin"
-                               onPaste='return false' onkeypress='validatePin(event)' autocomplete="false" class="form-control" maxlength=4> <!-- TODO: jordan's validation was fucking up pressing enter -->
+                               onPaste='return false' onkeypress='validatePin(event)' autocomplete="false" class="form-control" maxlength=4>
 
                         <br/>
                         <button type="submit" class="btn btn-primary">Login</button>

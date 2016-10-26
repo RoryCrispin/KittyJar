@@ -3,10 +3,8 @@
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/main.css">
 
-    <script src="js/bootstrap.min.js"></script>
-
+    <?php 'libs.php'; ?>
 
     <meta charset="UTF-8">
     <title>KittyJar</title>
@@ -26,7 +24,7 @@
     <p>Welcome to the simplest bill splitting tool out there! </p>
 
     <h6>Already got a group?</h6>
-    <form action="handleGroupLogin.php" method="post">
+    <form action="func/handleGroupLogin.php" method="post">
         <input type="text" name="groupCode" class="form-control grpCodeText shortTextBox" placeholder="Group code"
                aria-describedby="basic-addon1">
         <button type="submit" class="btn btn-primary grpCodeButton">Enter!</button>

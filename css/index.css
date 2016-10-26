@@ -1,6 +1,16 @@
 .grpCodeText {
 
 }
+
 .grpCodeButton {
     vertical-align: top;
+}
+
+.shortTextBox {
+    width: 30%;
+    display: inline;
+}
+
+.inline{
+    display: inline;
 }

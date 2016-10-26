@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css" >
-    <link rel="stylesheet" href="css/main.css" >
-     <link rel="stylesheet" href="css/createDebt.css" >
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/index.css" >
+    <link rel="stylesheet" href="css/createDebt.css" >
+
+    <?php 'libs.php'; ?>
 
     <meta charset="UTF-8">
     <title>KittyJar - Create Debt</title>
@@ -15,7 +15,7 @@
 <div class="jumbotron">
     <?php
         include 'head.php';
-        include 'database.php';
+        include 'func/database.php';
     ?>
 
     <h1>Create Debt</h1>
@@ -182,7 +182,7 @@
                     var toPost = {dRef : ref, dAmount : payEach, uID : userIDs}; //TODO dAmount unified or single??
 
                     $.ajax ({
-                        url: 'handleCreateDebt.php',
+                        url: 'func/handleCreateDebt.php',
                         data: {hello: JSON.stringify(toPost)},
                         type: 'post',
                         success: function(ret){

@@ -3,9 +3,8 @@
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css" >
     <link rel="stylesheet" href="css/dashboard.css" >
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
     <script src="js/countUp.min.js"></script>
+    <?php include 'libs.php'; ?>
 
     <meta charset="UTF-8">
     <title>KittyJar - Dashboard</title>
@@ -15,7 +14,7 @@
 <div class="jumbotron">
     <?php
         include 'head.php';
-        include 'database.php';
+        include 'func/database.php';
     ?>
 
     <h1>Your Dashboard</h1>
