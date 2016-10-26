@@ -10,8 +10,8 @@ $(".who-btn").click(function() {
     console.log(c);
 
     // set the action's id to the userid
-    $("#registerForm").attr("action", "func/handleSetDetails.php?id=" + userID + "&groupCode=" + groupCode);
-    $("#loginForm").attr("action", "func/handleUserLogin.php?id=" + userID + "&groupCode=" + groupCode);
+    $("#registerForm").attr("action", "../func/handleSetDetails.php?id=" + userID + "&groupCode=" + groupCode);
+    $("#loginForm").attr("action", "../func/handleUserLogin.php?id=" + userID + "&groupCode=" + groupCode);
 
     $('.modal-title').each(function() {
         var firstName;
