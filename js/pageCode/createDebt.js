@@ -97,7 +97,7 @@ function confirmDebt(){
     }else if (tickedNames == 0){
         alert("Please choose who needs to pay");
     } else {
-        var confirmTrue = confirm("Are you sure you want " + tickedNames + ' to pay £' + payEach.toFixed(2) + " for " + ref);
+        var confirmTrue = confirm("Are you sure you want " + tickedNames + ' to pay £' + payEach.toFixed(2) + " for " + ref + "?");
         //dName = ref
         //dAmount = payEach
         //ids = userIDs[]
@@ -109,7 +109,7 @@ function confirmDebt(){
                 data: {hello: JSON.stringify(toPost)},
                 type: 'post',
                 success: function(ret){
-                    alert(ret); //TODO REDIRECT
+                    //alert(ret); //TODO REDIRECT
                 }
             });
         }
