@@ -15,6 +15,10 @@ function php_getGroupCode($doThrowError)
 
 }
 
+function php_setGroupCode($val){
+    setcookie('groupCode', $val);
+}
+
 function php_groupCodeError(){
     header( 'Location: index.php?error' );
 }
