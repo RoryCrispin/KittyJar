@@ -109,7 +109,7 @@ function confirmDebt(){
                 data: {hello: JSON.stringify(toPost)},
                 type: 'post',
                 success: function(ret){
-                    //alert(ret); //TODO REDIRECT
+                    document.location = 'viewDebts.php';
                 }
             });
         }
