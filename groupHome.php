@@ -27,7 +27,7 @@
         <!--<h1>Welcome, <?php echo( getGroupName($groupCode, $conn)) ?><small> <?php echo($groupCode) ?></small></h1>-->
         <h1><?php echo( getGroupName($groupCode, $conn)) ?></h1>
         <br/>
-        <h4>Who are you? <?php echo(getGroupCode()); ?></h4>
+        <h4>Who are you? <?php echo(php_getGroupCode(false)); ?></h4>
     </div>
 
     <?php
