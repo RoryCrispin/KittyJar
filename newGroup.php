@@ -36,8 +36,6 @@
     </div>
     <input name="submit" type="button" class="submit btn btn-success inline" value="Submit">
 
-
-
 </div>
 </body>
 

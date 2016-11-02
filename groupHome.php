@@ -13,24 +13,21 @@
 <body>
 <div class="jumbotron">
     <?php
-        function errorRedirect(){
-           // header( 'Location: index.php?error' ) ;
-        }
+//        function errorRedirect(){
+//           // header( 'Location: index.php?error' ) ;
+//        }
             include 'head.php';
             include 'func/database.php';
             include 'func/groupDetails.php';
-        if(isset($_GET['groupCode'])){
-            $groupCode = $_GET['groupCode']; // TODO can't have error and id at the same time
-        } else {
-            errorRedirect();
-        }
+        $groupCode = php_getGroupCode(false);
+
     ?>
 
     <div class="page-header">
         <!--<h1>Welcome, <?php echo( getGroupName($groupCode, $conn)) ?><small> <?php echo($groupCode) ?></small></h1>-->
         <h1><?php echo( getGroupName($groupCode, $conn)) ?></h1>
         <br/>
-        <h4>Who are you?</h4>
+        <h4>Who are you? <?php echo(getGroupCode()); ?></h4>
     </div>
 
     <?php

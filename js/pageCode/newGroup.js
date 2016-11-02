@@ -36,7 +36,7 @@ $(document).ready(function () {
 
             type: 'post',
             success: function (data) {
-                //alert(people);
+                //alert();
                 window.location.replace("groupHome.php?groupCode=" + data );
 
             }

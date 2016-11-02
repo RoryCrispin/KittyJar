@@ -1,13 +1,14 @@
 var name;
 
+// $(function(){
+//     //alert( getGroup());
+// });
+
 $(".who-btn").click(function() {
     name = $(this).html();
     var userID = $(this).attr("userID");
     var groupCode = $(this).attr("groupCode");
 
-    Cookies.set('test', groupCode, {expires: 7});
-    var c = Cookies.get('test');
-    console.log(c);
 
     // set the action's id to the userid
     $("#registerForm").attr("action", "../func/handleSetDetails.php?id=" + userID + "&groupCode=" + groupCode);

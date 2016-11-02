@@ -1,7 +1,8 @@
 <?php
     include 'database.php';
-
-    $code = $_POST['groupCode'];
+    include '../phpLib.php';
+//    $code = $_POST['groupCode'];
+    $code = php_getGroupCode(false);
     $result = $conn->query("SELECT * FROM GroupTable WHERE groupCode LIKE '%$code%'");
 
     if($result->num_rows>0) {
@@ -9,7 +10,7 @@
 echo $code;
         header('Location: ../groupHome.php?groupCode=' . $code);
     } else {
-        header('Location: ../index.php?error');
+        header('Location: ../index.php?error');//TODO use getGroup.js error func
     }
 
     $conn->close();
