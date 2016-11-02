@@ -48,7 +48,7 @@
                 }
             }
         } else {
-            errorRedirect();
+            php_groupCodeError();
         }
 
         include 'registerModal.html';
