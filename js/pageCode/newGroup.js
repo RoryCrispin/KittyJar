@@ -11,11 +11,21 @@ $(document).ready(function () {
     });
 
 
+    function checkUnique(people){
+        for(var i = 0; i <= people.length; i++) {
+            for(var j = i; j <= people.length; j++) {
+                if(i != j && people[i] == people[j]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     $('.submit').click(function () {
 
         var people = [];
         var groupnameBox = document.getElementsByClassName("groupname");
-
 
         $.each($('.MemberRow'), function () {
             console.log(this);
@@ -28,10 +38,16 @@ $(document).ready(function () {
 
         console.log(JSON.stringify(people));
 
+        if(!checkUnique(people)){
+            alert("Names must be unique");
+            return;
+        }
+
+
+
         $.ajax({
             url: "func/registerGroup.php",
-//                    data: "people=" + JSON.stringify(
-// people),
+//                    data: "people=" + JSON.stringify(people),
             data: {people: JSON.stringify(people), groupname: $(groupnameBox).val()},
 
             type: 'post',

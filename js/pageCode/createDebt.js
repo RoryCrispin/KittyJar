@@ -48,7 +48,7 @@ function validateDebtAmount(evt) {
 
     if(debtValue.length == 0 && !numbersKey.test(key)) preventKeyPress(theEvent);
 
-    if(stopPlace > 0 && debtValue.length == (debtValue.indexOf(".") + 3)) preventKeyPress(theEvent);
+    if(debtValue.indexOf('.') > 0 && debtValue.length == (debtValue.indexOf(".") + 3)) preventKeyPress(theEvent);
 
     if(debtValue.indexOf('.') != -1 && '.'==key) preventKeyPress(theEvent);
 
@@ -97,7 +97,7 @@ function confirmDebt(){
     }else if (tickedNames == 0){
         alert("Please choose who needs to pay");
     } else {
-        var confirmTrue = confirm("Are you sure you want " + tickedNames + ' to pay £' + payEach.toFixed(2) + " for " + ref);
+        var confirmTrue = confirm("Are you sure you want " + tickedNames + ' to pay £' + payEach.toFixed(2) + " for " + ref + "?");
         //dName = ref
         //dAmount = payEach
         //ids = userIDs[]
@@ -105,11 +105,11 @@ function confirmDebt(){
             var toPost = {dRef : ref, dAmount : payEach, uID : userIDs};
 
             $.ajax ({
-                url: '../func/handleCreateDebt.php',
+                url: 'func/handleCreateDebt.php',
                 data: {hello: JSON.stringify(toPost)},
                 type: 'post',
                 success: function(ret){
-                    //alert(ret); TODO REDIRECT
+                    //alert(ret); //TODO REDIRECT
                 }
             });
         }

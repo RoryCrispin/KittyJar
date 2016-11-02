@@ -7,6 +7,7 @@ include "generateGroupCode.php";
 $data = json_decode($_POST["people"]);
 
 $groupCode = getGroupName($conn);
+
 $sql = "INSERT INTO `GroupTable`(`groupName`, `groupCode`)
 VALUES ('" .$_POST['groupname']  . "', '" . $groupCode."');";
 //echo $sql;
